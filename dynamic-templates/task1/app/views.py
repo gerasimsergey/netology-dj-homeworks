@@ -25,6 +25,7 @@ def load_inflation_data():
                 continue
 
             rows.append(row)
+
     return header, rows
 
 def inflation_view(request):
