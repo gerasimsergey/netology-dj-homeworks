@@ -109,6 +109,8 @@ STATIC_URL = '/static/'
 SECRET_KEY = 'put your secret here'
 DEBUG = True
 
+DATA_CSV = os.path.join(BASE_DIR, 'inflation_russia.csv')
+
 try:
     from .settings_local import *
 except ImportError:

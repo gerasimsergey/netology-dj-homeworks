@@ -1,6 +1,7 @@
+{% load dict_val_filter %}
 <!DOCTYPE html>{% load static %}
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Инфляция в России</title>
     <!--Import Google Icon Font-->
@@ -10,19 +11,54 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
+</head>
 
-  <body>
-    {% block content %}
-      <div class="row">
+<body>
+{% block content %}
+    <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
-        <!-- Ваша логика -->
+
+            <table class="u-full-width">
+                <thead>
+                <tr>
+                    {% for head in header %}
+                        <th>{{ head }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in data %}
+                    <tr>
+                        {# цикл по заголовкам, которые  и ключи #}
+                        {% for index_for_value in header %}
+
+                            {% if index_for_value == 'Суммарная' %}
+                                <td style="background-color: gray">{{ row |dict_val:index_for_value  }}</td>
+                            {% else %}
+                                     <td> {{ row |dict_val:index_for_value  }}
+                            {% endif %}
+
+
+{#                                       {% if  row.index_for_value  > 0 and row.index_for_value < 2   %}#}
+{#                                            <td style="background-color: pink"> {{ row |dict_val:index_for_value  }}</td>#}
+{#                                       {% endif %}#}
+{#                                       {%  if  row.index_for_value  > 2 and row.index_for_value < 5   %}#}
+{#                                           <td style="background-color: #f16969"> {{ row |dict_val:index_for_value  }}</td>#}
+{#                                       {% endif %}#}
+{#                                        {%  if  row.index_for_value  >  5   %}#}
+{#                                            <td style="background-color: #ff0000"> {{ row |dict_val:index_for_value  }}</td>#}
+{#                                        {% endif %}#}
+
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
         </div>
-      </div>
-    {% endblock %}
+    </div>
+{% endblock %}
 
-  </body>
+</body>
 </html>

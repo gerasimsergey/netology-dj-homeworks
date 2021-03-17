@@ -5,7 +5,6 @@ from urllib import parse
 from csv import DictReader
 
 # !!! правильное обращение к тому что прописано в  settings !!!
-
 from django.conf import settings
 
 
