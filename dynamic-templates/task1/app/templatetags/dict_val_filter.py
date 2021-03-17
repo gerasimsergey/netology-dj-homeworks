@@ -3,6 +3,7 @@ from django import template
 register = template.Library()
 
 
+
 @register.filter
 def dict_val(dict: dict, key: str):
     if key == 'Год':

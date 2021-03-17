@@ -7,7 +7,6 @@ from csv import DictReader
 # !!! правильное обращение к тому что прописано в  settings !!!
 from django.conf import settings
 
-
 def load_inflation_data():
     with open('inflation_russia.csv', newline='') as csvfile:
         header = ''

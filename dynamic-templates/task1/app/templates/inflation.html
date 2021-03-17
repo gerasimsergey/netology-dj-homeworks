@@ -32,9 +32,25 @@
                     <tr>
                         {# цикл по заголовкам, которые  и ключи #}
                         {% for index_for_value in header %}
-                            <td style="background-color: {{ row|color_filter:index_for_value }}">{{ row |dict_val:index_for_value  }}</td>
+                            <td style="background-color: {{ row|color_filter:index_for_value }}">{{ row |dict_val:index_for_value }}</td>
                         {% endfor %}
                     </tr>
+{#  Не правильно и не работало странно чего                  #}
+{#                    {% if index_for_value == 'Суммарная' %}#}
+{#                                <td style="background-color: gray">{{ row |dict_val:index_for_value  }}</td>#}
+{#                    {% else %}#}
+{#                                     <td> {{ row |dict_val:index_for_value  }}#}
+{#                    {% endif %}#}
+{#                                       {% if  row.index_for_value  > 0 and row.index_for_value < 2   %}#}
+{#                                            <td style="background-color: pink"> {{ row |dict_val:index_for_value  }}</td>#}
+{#                                       {% endif %}#}
+{#                                       {%  if  row.index_for_value  > 2 and row.index_for_value < 5   %}#}
+{#                                           <td style="background-color: #f16969"> {{ row |dict_val:index_for_value  }}</td>#}
+{#                                       {% endif %}#}
+{#                                        {%  if  row.index_for_value  >  5   %}#}
+{#                                            <td style="background-color: #ff0000"> {{ row |dict_val:index_for_value  }}</td>#}
+{#                                        {% endif %}#}
+
                 {% endfor %}
                 </tbody>
             </table>
