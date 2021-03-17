@@ -3,7 +3,6 @@ from django import template
 register = template.Library()
 
 
-
 @register.filter
 def dict_val(dict: dict, key: str):
     if key == 'Год':
@@ -13,7 +12,6 @@ def dict_val(dict: dict, key: str):
             return 0.0
 
         return float(dict.get(key)) # для того что бы сравнение работало
-
 
 
 @register.filter
